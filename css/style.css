@@ -1,0 +1,237 @@
+/* -----GLOBAL VARS----- */
+:root {
+  /* Ball Stop point */
+  --ballstopx: calc(100vw - 500px);
+  /* main colors */
+  --color1: pink;
+  --color2: lime;
+}
+/*Citation for root: use: https://www.w3schools.com/css/css3_variables.asp */
+
+body{
+  font-family: 'Proxima Nova', sans-serif;
+  /* margin: 60px; */
+  /* padding: 60px; */
+  font-size: 16pt;
+}
+p {
+  margin: 10px;
+  padding: 10px;
+}
+h2{
+  text-align: center;
+}
+/*Keyframes for ball bounce animation*/
+@-webkit-keyframes bounce {
+    0% {-webkit-transform: translateY(-100px);}
+    10%, 30%, 50%, 100% {-webkit-transform: translateY(0);}
+    20% {-webkit-transform: translateY(-20px);}
+    40% {-webkit-transform: translateY(-5px);}
+    60% {-webkit-transform: translateY(-2px);}
+ }
+ @keyframes bounce {
+   0% {-webkit-transform: translateY(-100px);}
+   10%, 30%, 50%, 100% {-webkit-transform: translateY(0);}
+   20% {-webkit-transform: translateY(-20px);}
+   40% {-webkit-transform: translateY(-5px);}
+   60% {-webkit-transform: translateY(-2px);}
+ }
+ /* Citation Bounce:https://www.tutorialspoint.com/css/css_animation_bounce.htm */
+
+ #logo{
+   height: 100px;
+   padding-top: 50px;
+   position: relative;
+   /* first make a NAME for the animation above */
+   -webkit-animation-name: bounce;
+   animation-name: bounce;
+   /* DURATION */
+   -webkit-animation-duration: 2s;
+   animation-duration: 2s;
+   /* # of times/SO IT DOESNT REPEAT */
+   -webkit-animation-iteration-count: 1;
+   animation-iteration-count: 1;
+   /* Stays in final position */
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+ }
+#title{
+  position: absolute;
+  font-size: 50px;
+  padding-bottom: 30px;
+}
+#gallery{
+  text-align: center;
+  font-size: 25px;
+  padding-top: 50px;
+}
+header{
+  background: white;
+  border-bottom: 3px solid var(--color1);
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
+nav li{
+  display:inline;
+  padding-right:20px;
+}
+nav a{
+  font-size:16pt;
+  color: black;
+  text-decoration: none;
+}
+nav a:hover{
+  color:white;
+  background-color: black;
+  border: 2px solid black;
+  font-weight: bold;
+  padding: 10px;
+  transition: 1s ease-in;
+  transition: 1s ease-in;
+  /* Rollback */
+}
+.process a:hover{
+  color: var(--color1);
+}
+.design a:hover{
+  color: var(--color2);
+}
+nav{
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+}
+.current {
+  font-weight: bold;
+  border: 2px solid grey;
+  padding: 10px;
+}
+.gallery{
+  /* height: 100px; */
+  display:flex;
+  align-items:center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin:50px;
+}
+.gallery > a{
+  border: 10px grey solid;
+  margin: 10px;
+  width: 100px;
+  height:100px
+}
+.gallery a:hover:nth-child(even){
+  border: 10px var(--color1) solid;
+}
+.gallery a:hover:nth-child(odd){
+  border: 10px var(--color2) solid;
+}
+footer{
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+/* --------------------------------WELCOME ONLY--------------------------------------- */
+#image1, #image2, #image3, #image4, #image5, #image6, #image7, #image8, #image9 {
+  background-image: url(../images/ball3.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+#image1:hover{
+  background-image: url(../images/cnbc-logo.png);
+}
+#image2:hover{
+  background-image: url(../images/nbc-logo.png);
+}
+#image3:hover{
+  background-image: url(../images/amazon-logo.png);
+}
+#image4:hover{
+  background-image: url(../images/sas-logo.png);
+}
+#image5:hover{
+  background-image: url(../images/justfutures_logotype.jpg);
+}
+#image6:hover{
+  background-image: url(../images/comingsoon.jpg);
+}
+#image7:hover{
+  background-image: url(../images/comingsoon.jpg);
+}
+#image8:hover{
+  background-image: url(../images/comingsoon.jpg);
+}
+#image9:hover{
+  background-image: url(../images/comingsoon.jpg);
+}
+/* --------------------------------PROCESS ONLY--------------------------------------- */
+#chenpersona, #cookpersona, #diynapersona{
+    height: 300px;
+}
+#cnbcaffinity{
+    height: 800px;
+}
+/* --------------------------------DESIGN ONLY--------------------------------------- */
+/* --------------------------------ABOUT ONLY--------------------------------------- */
+/* DESKTOP */
+@media all and (min-width: 800px){
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* justify-content: flex-start; */
+  /* justify-content: right; */
+}
+nav{
+  /* text-align: right; */
+  padding: 10px 0px;
+  display:inline-block;
+  margin-right:10px;
+}
+/* Keyframes for ball roll animation*/
+@-webkit-keyframes roll {
+  from {transform:rotate(0deg); left:-999px; top:30px;}
+  to {transform:rotate(1500deg); left:var(--ballstopx); top:30px;}
+}
+@keyframes roll {
+    from {transform:rotate(0deg); left:-999px; top:30px;}
+    to {transform:rotate(1500deg); left:var(--ballstopx); top:30px;}
+}
+/* @-webkit-keyframes rollback {
+  from {transform:rotate(0deg); left:-100px; top:30px;}
+  to {transform:rotate(1500deg); left:calc(100vw - 481px); top:30px;}
+}
+@keyframes rollback {
+    from {transform:rotate(0deg); left:-100px; top:30px;}
+    to {transform:rotate(1500deg); left: calc(100vw - 481px); top:30px;}
+} */
+/* How to use calc citation:https://stackoverflow.com/questions/45591449/use-screen-width-inside-calc-css */
+/* How to roll citation:https://stackoverflow.com/questions/14859322/css3-spin-animation */
+/* ID */
+#logo{
+  height: 100px;
+  position: relative;
+  padding-top: 0px;
+  /* first make a NAME for the animation above */
+  -webkit-animation-name: roll;
+  animation-name: roll;
+  /* DURATION */
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+  /* # of times/SO IT DOESNT REPEAT */
+  -webkit-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  /* Stays in final position */
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+.gallery > a{
+  width: 300px;
+  height: 300px;
+}
+}
+
+/* #gallery a:hover:nth-child(1n+4) */
